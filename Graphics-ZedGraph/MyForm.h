@@ -32,6 +32,9 @@ namespace Graph {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::TextBox^ textBox7;
 	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::CheckBox^ checkBox4;
+	private: System::Windows::Forms::CheckBox^ checkBox5;
+	private: System::Windows::Forms::Label^ label13;
 		   Integrator* pIntegrator;
 	protected:
 		/// <summary>
@@ -136,11 +139,14 @@ namespace Graph {
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// zedGraphControl1
 			// 
-			this->zedGraphControl1->Location = System::Drawing::Point(51, 37);
+			this->zedGraphControl1->Location = System::Drawing::Point(51, 14);
 			this->zedGraphControl1->Margin = System::Windows::Forms::Padding(5);
 			this->zedGraphControl1->Name = L"zedGraphControl1";
 			this->zedGraphControl1->ScrollGrace = 0;
@@ -150,7 +156,7 @@ namespace Graph {
 			this->zedGraphControl1->ScrollMinX = 0;
 			this->zedGraphControl1->ScrollMinY = 0;
 			this->zedGraphControl1->ScrollMinY2 = 0;
-			this->zedGraphControl1->Size = System::Drawing::Size(981, 408);
+			this->zedGraphControl1->Size = System::Drawing::Size(1018, 431);
 			this->zedGraphControl1->TabIndex = 0;
 			// 
 			// button1
@@ -263,7 +269,7 @@ namespace Graph {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(80, 22);
 			this->textBox4->TabIndex = 17;
-			this->textBox4->Text = L"10";
+			this->textBox4->Text = L"100";
 			// 
 			// label6
 			// 
@@ -365,7 +371,7 @@ namespace Graph {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label11->Location = System::Drawing::Point(527, 681);
+			this->label11->Location = System::Drawing::Point(393, 681);
 			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(53, 20);
@@ -377,7 +383,7 @@ namespace Graph {
 			this->label_result->AutoSize = true;
 			this->label_result->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label_result->Location = System::Drawing::Point(527, 693);
+			this->label_result->Location = System::Drawing::Point(398, 710);
 			this->label_result->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label_result->Name = L"label_result";
 			this->label_result->Size = System::Drawing::Size(0, 20);
@@ -422,7 +428,7 @@ namespace Graph {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(80, 22);
 			this->textBox6->TabIndex = 35;
-			this->textBox6->Text = L"0,3";
+			this->textBox6->Text = L"0,01";
 			// 
 			// label12
 			// 
@@ -452,11 +458,48 @@ namespace Graph {
 			this->textBox8->TabIndex = 38;
 			this->textBox8->Text = L"1";
 			// 
+			// checkBox4
+			// 
+			this->checkBox4->AutoSize = true;
+			this->checkBox4->Checked = true;
+			this->checkBox4->CheckState = System::Windows::Forms::CheckState::Checked;
+			this->checkBox4->Location = System::Drawing::Point(1031, 721);
+			this->checkBox4->Name = L"checkBox4";
+			this->checkBox4->Size = System::Drawing::Size(121, 21);
+			this->checkBox4->TabIndex = 39;
+			this->checkBox4->Text = L"значение g(x)";
+			this->checkBox4->UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			this->checkBox5->AutoSize = true;
+			this->checkBox5->Location = System::Drawing::Point(1031, 748);
+			this->checkBox5->Name = L"checkBox5";
+			this->checkBox5->Size = System::Drawing::Size(128, 21);
+			this->checkBox5->TabIndex = 40;
+			this->checkBox5->Text = L"сложность T(x)";
+			this->checkBox5->UseVisualStyleBackColor = true;
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label13->Location = System::Drawing::Point(1027, 681);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(74, 20);
+			this->label13->TabIndex = 41;
+			this->label13->Text = L"График";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1299, 811);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->checkBox5);
+			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->label12);
@@ -627,15 +670,17 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			pQuadInt->QuadratureFunc(-M_PI / 2.0, M_PI / 2.0, eps, x, utils::QuadMiddleRectangIntegral);
 		else if (checkBox2->Checked)
 			pQuadInt->QuadratureFunc(-M_PI / 2.0, M_PI / 2.0, eps, x, utils::QuadTrapezoidalIntegral);
-		else pQuadInt->QuadratureFunc(-M_PI / 2.0, M_PI / 2.0, eps, x, utils::QuadSimpsonIntegral);
+		else if (checkBox3->Checked)
+			pQuadInt->QuadratureFunc(-M_PI / 2.0, M_PI / 2.0, eps, x, utils::QuadSimpsonIntegral);
 		f1_list->Add(x, pQuadInt->result);
 		f2_list->Add(x, pQuadInt->number_of_recursions);
 	
 	}
 			
 
-	
-	LineItem Curve1 = panel->AddCurve("result", f1_list, Color::Red, SymbolType::Plus);
+	if (checkBox4->Checked)
+		LineItem Curve1 = panel->AddCurve("result", f1_list, Color::Red, SymbolType::Plus);
+	if (checkBox5->Checked)
 	LineItem Curve2 = panel->AddCurve("number_of_recursions", f2_list, Color::Blue, SymbolType::None);
 /**/
 	// Устанавливаем интересующий нас интервал по оси X
